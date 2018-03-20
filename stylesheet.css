@@ -1,0 +1,58 @@
+body {
+    font-family: 'Fjalla One', sans-serif;
+    background-image: url('images/rot.jpg');
+    background-attachment: fixed;
+    background-position: top;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.445);
+    position: fixed;
+    padding: 30px;
+    margin: 0;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+/* .topbar {
+    background-color: #959900;
+    padding: 25px;
+    margin-bottom: 105px;
+    margin-left: -135px;
+    margin-right: -135px;
+} */
+h1 {
+    margin-bottom: 10px;
+    color: black;
+}
+
+#short-description {
+    margin-top: 100px;
+    color: black;
+    text-align: center;
+    font-size: 25px;
+}
+
+#signup-form {
+    color: black;
+    margin-top: 200px;
+    margin-bottom: 200em;
+}
+
+legend {
+    color: white;
+    text-align: center;
+}
+
+li {
+    color: red;
+}
+
+#label {
+    color: green;
+}
