@@ -60,6 +60,36 @@ function addUsernameValidation() {
     });
 }
 
+// *****Email FUNCTIONS**************
+
+function containSymbol(email) {
+    var symbol = /[0-9@]/i;
+    if (symbol.test(email)) {
+        return true;
+    }
+    return false;
+}
+function checkingEmailError(string) {
+    var characters = [];
+    if (containSymbol(string) == false) {
+        characters.push('<li>Email must contain "@" & one number</li>');
+    }
+    return characters.join('');
+}
+
+function EmailErrorHtml(email) {
+    const html = checkingEmailError(email);
+    $('#Email-errors').html(html);
+}
+
+function addEmailValidation() {
+    const input = $('#Email-input');
+    input.on('input', function(event) {
+        EmailErrorHtml(event.currentTarget.value);
+        enableButton();
+    });
+}
+
 // *****PASSWORD FUNCTIONS*****//
 
 function containsLetter(password) {
@@ -123,14 +153,22 @@ function addpasswordValidation() {
 function checkValidName() {
     return checkingNameError($('#Name-input').val()).trim() === '';
 }
-function checkValidUser() {
+function checkValidUsername() {
     return checkingUsernameError($('#Username-input').val()).trim() === '';
+}
+function checkValidEmail() {
+    return checkingEmailError($('#Email-input').val()).trim() === '';
 }
 function checkValidPassword() {
     return checkingPasswordError($('#Password-input').val()).trim() === '';
 }
 function enableButton() {
-    if (checkValidName() && checkValidUser() && checkValidPassword()) {
+    if (
+        checkValidName() &&
+        checkValidEmail() &&
+        checkValidUsername() &&
+        checkValidPassword()
+    ) {
         $('.btn').attr('disabled', false);
     } else {
         $('.btn').attr('disabled', true);
@@ -138,7 +176,12 @@ function enableButton() {
 }
 
 function checksSignUpForm() {
-    if (checkValidName() && checkValidUser() && checkValidPassword()) {
+    if (
+        checkValidName() &&
+        checkValidEmail() &&
+        checkValidUsername() &&
+        checkValidPassword()
+    ) {
         $('#Signup-form').hide();
         $('#afterFormMessage')
             .html('<h3>It works</h3>')
@@ -163,12 +206,18 @@ function main() {
     addNameValidation();
     addUsernameValidation();
     addpasswordValidation();
+    addEmailValidation();
     $('#Signup-form').on('submit', function(event) {
         event.preventDefault();
         checksSignUpForm();
         var name = $('#Name-input').val();
+        console.log(name);
         var username = $('#Username-input').val();
+        console.log(username);
+        var email = $('#Email-input').val();
+        console.log(email);
         var password = $('#Password-input').val();
+        console.log(password);
     });
     loadPages();
 }
