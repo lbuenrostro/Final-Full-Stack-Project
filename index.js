@@ -1,32 +1,33 @@
-// *****Email FUNCTIONS**************
-function containSymbol(email) {
-    var symbol = /[0-9@]/i;
-    if (symbol.test(email)) {
+// *****Name FUNCTIONS*****//
+function onlyLetters(string) {
+    var letters = /[a-z]/i;
+    if (letters.test(string)) {
         return true;
     }
     return false;
 }
-function checkingEmailError(string) {
+function checkingNameError(string) {
     var characters = [];
-    if (containSymbol(string) == false) {
-        characters.push('<li>Email must contain "@" & one number</li>');
+    if (string.length < 8 || string.length > 20) {
+        characters.push('<li>Please Enter a valid name</li>');
+    }
+    if (onlyLetters(string) == false) {
+        characters.push('<li>Invalid Only letters</li>');
     }
     return characters.join('');
 }
-//
-function EmailErrorHtml(email) {
-    const html = checkingEmailError(email);
-    $('#Email-errors').html(html);
+function NameErrorHtml(name) {
+    const html = checkingNameError(name);
+    $('#Name-errors').html(html);
 }
-//
-function addEmailValidation() {
-    const input = $('#Email-input');
+
+function addNameValidation() {
+    const input = $('#Name-input');
     input.on('input', function(event) {
-        EmailErrorHtml(event.currentTarget.value);
+        NameErrorHtml(event.currentTarget.value);
         enableButton();
     });
 }
-//
 // ********USERNAME FUNCTION***********
 
 function onlyNumbersAndLetters(string) {
@@ -36,7 +37,7 @@ function onlyNumbersAndLetters(string) {
     }
     return false;
 }
-function checkError(string) {
+function checkingUsernameError(string) {
     var characters = [];
     if (string.length < 8 || string.length > 16) {
         characters.push('<li>8-16 characters</li>');
@@ -47,7 +48,7 @@ function checkError(string) {
     return characters.join('');
 }
 function usernameErrorHtml(username) {
-    const html = checkError(username);
+    const html = checkingUsernameError(username);
     $('#Username-errors').html(html);
 }
 
@@ -119,83 +120,57 @@ function addpasswordValidation() {
 }
 
 // -------------- ENABLE BUTTON -----------
-function checkValidEmail() {
-    return checkingEmailError($('#Email-input').val()).trim() === '';
+function checkValidName() {
+    return checkingNameError($('#Name-input').val()).trim() === '';
 }
 function checkValidUser() {
-    return checkError($('#Username-input').val()).trim() === '';
+    return checkingUsernameError($('#Username-input').val()).trim() === '';
 }
 function checkValidPassword() {
     return checkingPasswordError($('#Password-input').val()).trim() === '';
 }
 function enableButton() {
-    if (checkValidEmail() && checkValidUser() && checkValidPassword()) {
+    if (checkValidName() && checkValidUser() && checkValidPassword()) {
         $('.btn').attr('disabled', false);
     } else {
         $('.btn').attr('disabled', true);
     }
 }
-// -------------- JSON PAGE-DATA -----------
-$('#signup-form').on('submit', function(event) {
-    event.preventDefault();
-    var email = $('#Email-input').val();
-    console.log(email);
-    var username = $('#Username-input').val();
-    console.log(username);
-    var password = $('#Password-input').val();
-    console.log(password);
-});
 
-function postServer() {
-    $('#signup-form').on('submit', function(event) {
-        $.post(
-            'http://localhost:8080/posts/new/',
-            JSON.stringify({
-                email: $('#Email-input').val(),
-                username: $('#Username-input').val(),
-                password: $('#Password-input').val()
-            })
-        )
-            .then(function successfullSignup(data) {
-                console.log(data);
-            })
-            .catch(function unsuccessfulSignup(response) {
-                console.log(response.status);
-                console.log(response.response.JSON);
-            });
-    });
+function checksSignUpForm() {
+    if (checkValidName() && checkValidUser() && checkValidPassword()) {
+        $('#Signup-form').hide();
+        $('#afterFormMessage')
+            .html('<h3>It works</h3>')
+            .show();
+    } else {
+        $('#afterFormMessage')
+            .html("<h3>Doesn't work</h3>")
+            .show();
+    }
 }
-
-// -------------- Log-in -----------
-function loginServer() {
-    $('#login-form').on('submit', function(event) {
-        event.preventDefault();
-        $.post(
-            'http://localhost:8080/posts/new/',
-            JSON.stringify({
-                username: $('#User').val(),
-                password: $('#Pass').val()
-            })
-        )
-            .then(function successfulLogin(data) {
-                console.log('Hello World');
-                window.location = 'profile/profile.html';
-                console.log(data);
-            })
-            .catch(function unsuccessfulLogin(response) {
-                console.log();
-                console.log(response.status);
-                console.log(response.response.JSON);
-            });
+// Fucnction triggers the top-bar buttons
+function loadPages() {
+    $('.headline-btns').click(function() {
+        $('.main-div-group').hide();
+        var id = $(this).attr('id');
+        var div = '#' + id.replace('btn', 'div');
+        $(div).show();
     });
 }
 // ------------------------------------------
 function main() {
-    addEmailVlidation();
+    addNameValidation();
     addUsernameValidation();
     addpasswordValidation();
-    postServer();
-    loginServer();
+    $('#Signup-form').on('submit', function(event) {
+        event.preventDefault();
+        checksSignUpForm();
+        var name = $('#Name-input').val();
+        var username = $('#Username-input').val();
+        var password = $('#Password-input').val();
+    });
+    loadPages();
 }
 
 $(main);
