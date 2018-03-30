@@ -305,8 +305,16 @@ function loadPages() {
 function registerSignUpHandler() {
     $('#Signup-form').on('submit', function(event) {
         event.preventDefault();
+        console.log(
+            JSON.stringify({
+                adopterName: $('#adopterName-input').val(),
+                username: $('#Username-input').val(),
+                email: $('#Email-input').val(),
+                password: $('#Password-input').val()
+            })
+        );
         $.ajax({
-            url: 'http://localhost:8080/SignUp',
+            url: 'http://localhost:8080/SignUp/',
             method: 'POST',
             dataType: 'json',
             crossDomain: true,
@@ -325,21 +333,30 @@ function registerSignUpHandler() {
     });
 }
 // ------------------------------------------
-function Login() {
-    $.ajax({
-        url: 'http://localhost:8080/Login',
-        method: 'POST',
-        dataType: 'json',
-        crossDomain: true,
-        data: JSON.stringify({
-            adopterName: $('#adopterName-input').val(),
-            password: $('#Password-input').val()
-        }),
-        contentType: 'application/json',
-        mimeType: 'application/json',
-        error: function(data, status, er) {
-            alert('status: ' + status);
-        }
+function registerLoginHandler() {
+    $('#login-form').on('submit', function(event) {
+        event.preventDefault();
+        console.log(
+            JSON.stringify({
+                username: $('#Username-Input').val(),
+                password: $('#Password-Input').val()
+            })
+        );
+        $.ajax({
+            url: 'http://localhost:8080/Login/',
+            method: 'POST',
+            dataType: 'json',
+            crossDomain: true,
+            data: JSON.stringify({
+                adopterName: $('#Username-Input').val(),
+                password: $('#Password-Input').val()
+            }),
+            contentType: 'application/json',
+            mimeType: 'application/json',
+            error: function(data, status, er) {
+                alert('status: ' + status);
+            }
+        });
     });
 }
 // ------------------------------------------
@@ -362,16 +379,17 @@ function main() {
     // });
     AddUsernameValidation();
     AddpasswordValidation();
-    $('#login-form').on('submit', function(event) {
-        event.preventDefault();
-        checksLoginForm();
-        var Username = $('#Username-Input').val();
-        console.log(Username);
-        var Password = $('#Password-Input').val();
-        console.log(Password);
-    });
+    // $('#login-form').on('submit', function(event) {
+    //     event.preventDefault();
+    //     checksLoginForm();
+    //     var Username = $('#Username-Input').val();
+    //     console.log(Username);
+    //     var Password = $('#Password-Input').val();
+    //     console.log(Password);
+    // });
     loadPages();
     registerSignUpHandler();
+    registerLoginHandler();
 }
 
 $(main);
