@@ -1,3 +1,100 @@
+////////////////////////////////////////////////////////////////////////////////////////////////
+////Manager login
+// ********MANAGER-USERNAME FUNCTION***********
+
+function AdminContains(string) {
+    var letters = /^[0-9a-z]*$/i;
+    if (letters.test(string)) {
+        return true;
+    }
+    return false;
+}
+function AdminUsernameError(string) {
+    var characters = [];
+    if (string.length < 8 || string.length > 16) {
+        characters.push('<li>8-16 characters</li>');
+    }
+    if (AdminContains(string) == false) {
+        characters.push('<li>username must contain numbers & letters</li>');
+    }
+    return characters.join('');
+}
+function AdminUsernameErrorHtml(username) {
+    const html = AdminUsernameError(username);
+    $('#AdminUsername-Errors').html(html);
+}
+
+function AddAdminUsernameValidation() {
+    const input = $('#AdminUsername-Input');
+    input.on('input', function(event) {
+        AdminUsernameErrorHtml(event.currentTarget.value);
+        AdminEnableButton();
+    });
+}
+
+// *****PASSWORD FUNCTIONS*****//
+
+function AdminContainsMore(password) {
+    var letter = /[0-9a-z!:;"',.?]*S/i;
+    if (letter.test(password)) {
+        return true;
+    }
+    return false;
+}
+function AdminPasswordError(string) {
+    var LetterDigitPunctuation = [];
+    if (string.length < 11 || string.length > 15) {
+        LetterDigitPunctuation.push(
+            '<li>has to be between 12-16 character</li>'
+        );
+    }
+    if (AdminContainsMore(string) == false) {
+        LetterDigitPunctuation.push('<li>Number & Punctuation</li>');
+    }
+    return LetterDigitPunctuation.join('');
+}
+
+function AdminPasswordErrorHtml(password) {
+    const html = AdminPasswordError(password);
+    $('#AdminPassword-Errors').html(html);
+}
+
+function AddAdminPasswordValidation() {
+    const input = $('#AdminPassword-Input');
+    input.on('input', function(event) {
+        AdminPasswordErrorHtml(event.currentTarget.value);
+        AdminEnableButton();
+    });
+}
+
+// -------------- ENABLE BUTTON -----------
+function CheckValidAdminUsername() {
+    return AdminUsernameError($('#AdminUsername-Input').val()).trim() === '';
+}
+function CheckValidAdminPassword() {
+    return AdminPasswordError($('#AdminPassword-Input').val()).trim() === '';
+}
+function AdminEnableButton() {
+    if (CheckValidAdminUsername() && CheckValidAdminPassword()) {
+        $('.btn').attr('disabled', false);
+    } else {
+        $('.btn').attr('disabled', true);
+    }
+}
+
+function AdminLoginForm() {
+    if (CheckValidAdminUsername() && CheckValidAdminPassword()) {
+        $('#AdminLogin-form').hide();
+        $('#afterAdminLoginFormMessage')
+            .html('<h3>It works</h3>')
+            .show();
+    } else {
+        $('#afterAdminLoginFormMessage')
+            .html("<h3>Doesn't work</h3>")
+            .show();
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
 // *****Name FUNCTIONS*****//
 function onlyLetters(string) {
     var letters = /[a-z]/i;
@@ -243,7 +340,7 @@ function PasswordError(string) {
         );
     }
     if (contains(string) == false) {
-        LetterDigitPunctuation.push('<li>Number && Punctuation</li>');
+        LetterDigitPunctuation.push('<li>Number & Punctuation</li>');
     }
     return LetterDigitPunctuation.join('');
 }
@@ -387,6 +484,17 @@ function main() {
     //     var Password = $('#Password-Input').val();
     //     console.log(Password);
     // });
+    AddAdminUsernameValidation();
+    AddAdminPasswordValidation();
+    $('#Adminlogin-form').on('submit', function(event) {
+        event.preventDefault();
+        checksLoginForm();
+        var AdminUsername = $('#AdminUsername-Input').val();
+        console.log(AdminUsername);
+        var AdminPassword = $('#AdminPassword-Input').val();
+        console.log(AdminPassword);
+    });
+
     loadPages();
     registerSignUpHandler();
     registerLoginHandler();

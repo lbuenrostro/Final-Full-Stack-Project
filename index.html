@@ -151,6 +151,28 @@
         <div id="admin-div" class="row main-div-group" hidden>
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
+                    <form id="AdminLogin-form">
+                        <fieldset>
+                            <legend>
+                                <i class="fas fa-paw"></i>&nbsp&nbspLogin Account&nbsp&nbsp
+                                <i class="fas fa-paw"></i>
+                            </legend>
+                            <div class="form-group">
+                                <label for="AdminUsername">Username</label>
+                                <input type="text" class="form-control" id="AdminUsername-Input" aria-describedby="AdminHelp" placeholder="Enter Admin Username"
+                                    required>
+                                <ul id="AdminUsername-Errors"></ul>
+                            </div>
+                            <div class="form-group">
+                                <label for="AdminPassword">Password</label>
+                                <input type="Password" class="form-control" id="AdminPassword-Input" aria-describedby="AdminHelp" placeholder="Enter Admin Password">
+                                <ul id="AdminPassword-Errors"></ul>
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-sign-in-alt"></i> Login</button>
+                            <br>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
         </div>
