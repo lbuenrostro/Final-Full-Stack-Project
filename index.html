@@ -9,22 +9,36 @@
     <script defer src="static/fontawesome-all.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <link rel="stylesheet" href="static/stylesheet.css">
+
+
+    <!-- for select option bar to work??-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
+
+
+
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="jumbotron col-lg-12 col-md-12 col-sm-12">
+            <div class="jumbotron col-sm-12">
                 <div class="top-bar">
+                    <h1 style="color: white;  
+                    font-family: 'Alfa Slab One', cursive;
+                    font-size: 4em; 
+                    margin-bottom: -2px; 
+                    margin-right: 20px;">
+                        <b>PuppyLove</b>
+                    </h1>
                     <button type="button" id="home-btn" class="btn headline-btns">
                         <i class="fas fa-paw"></i>
-
                         HOME
                     </button>
-                    <button type="button" id="adopt-btn" class="btn headline-btns">
+                    <button type="button" id="signUp-btn" class="btn headline-btns">
                         <i class="fas fa-paw"></i>
-
-                        ADOPT
+                        SIGN UP TO ADOPT
                     </button>
                     <button type="button" id="login-btn" class="btn headline-btns">
                         <i class="fas fa-paw"></i>
@@ -38,25 +52,59 @@
             </div>
         </div>
         <hr>
+
         <div id="home-div" class="row main-div-group">
+            <img class="img-responsive" src="static/images/puppy-banner.jpg" alt="cover-image" />
             <div class="row">
                 <div class="col-sm-12">
-                    <p id="short-description">
-                        <b id="mini-description">LOVE . CARE. ADOPT</b>
-                        PUPPIES Leave Pawprints on your heart, Make someone
-                        <b id="mini-description">"SMILE"</b>
-                        , ADOPT TODAY!
-                    </p>
-                    <center>
-                        <hr id="hr">
-                        <img src="static/images/puppyLove.png" alt="puppyLove logo" title="logo" width="200" height="200" />
-                        <hr id="hr">
-                    </center>
+                    <div>
+                        <center>
+                            <select data-live-search="true" data-live-search-style="startsWith" class="selectpicker data-style=" btn-info "">
+                                <option value="1">German Shepherd</option>
+                                <option value="2">Labrador Retriever</option>
+                                <option value="3">Rottweiler</option>
+                                <option value="4">Pit Bull</option>
+                                <option value="5">Golden Retriever</option>
+                                <option value="6">Beagle</option>
+                                <option value="7">Bulldog</option>
+                                <option value="8">Great Dane</option>
+                                <option value="9">Poodle</option>
+                                <option value="10">Doberman</option>
+                                <option value="11">Dachshund</option>
+                                <option value="12">Siberian Husky</option>
+                                <option value="13">Chihuahua</option>
+                                <option value="14">Boxer</option>
+                                <option value="15">Pug</option>
+                                <option value="16">English Mastiff</option>
+                                <option value="17">Chow Chow</option>
+                                <option value="18">Border Collie</option>
+                                <option value="19">Yorkshire Terrier</option>
+                                <option value="20">Shih Tzu</option>
+                                <option value="21">Pomeranina</option>
+                                <option value="22">Cavalier King Charles Spaniel</option>
+                                <option value="23">St. Bernard</option>
+                                <option value="24">Basset Hound</option>
+                                <option value="25">Alaskan Malamute</option>
+                                <option value="26">Pekingese</option>
+                                <option value="27">French Bulldog</option>
+                                <option value="28">Bichon Frise</option>
+                                <option value="29">Great Pyrenees</option>
+                                <option value="30">Bernese Mountain Dog</option>
+                            </select>
+                        </center>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- <p id="short-description"> 
+                        <b id="mini-description"> LOVE . CARE. ADOPT</b>
+                        PUPPIES Leave Pawprints on your heart, Make someone
+                        <b id="mini-description"> "SMILE "</b>
+                        , ADOPT TODAY!
+                    </p> -->
 
-        <div id="adopt-div" class="row main-div-group" hidden>
+
+        <div id="signUp-div" class="row main-div-group" hidden>
             <div class="row">
                 <div class="col-sm-12">
                     <h3>
@@ -67,33 +115,35 @@
                     <form id="Signup-form">
                         <fieldset>
                             <legend>
-                                <i class="fas fa-paw"></i>&nbsp&nbspAdopt to Love&nbsp&nbsp
-                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"> </i>&nbsp&nbspAdopt to Love&nbsp&nbsp
+                                <i class="fas fa-paw"> </i>
                             </legend>
                             <div class="form-group">
-                                <label for="Name">Adopter Name</label>
+                                <label for="Name"> Adopter Name</label>
                                 <input type="text" class="form-control" id="adopterName-input" aria-describedby="NameHelp" placeholder="Enter Name" required>
-                                <ul id="adopterName-errors"></ul>
+                                <ul id="adopterName-errors"> </ul>
                             </div>
                             <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" id="Username-input" aria-describedby="usernameHelp" placeholder="Enter Username"
-                                    required>
-                                <ul id="Username-errors"></ul>
+                                <label for="username"> Username</label>
+                                <input type="text" class="form-control" id="Username-input" aria-describedby="usernameHelp
+                                   " placeholder="Enter Username" required>
+                                <ul id="Username-errors"> </ul>
                             </div>
                             <div class="form-group">
-                                <label for="Email">Email address</label>
-                                <input type="text" class="form-control" id="Email-input" aria-describedby="emailHelp" placeholder="Enter email">
-                                <ul id="Email-errors"></ul>
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                <label for="Email"> Email address</label>
+                                <input type="text" class="form-control" id="Email-input" aria-describedby="emailHelp
+                                   " placeholder="Enter email">
+                                <ul id="Email-errors"> </ul>
+                                <small id="emailHelp" class="form-text text-muted"> We'll never share your email with anyone else.</small>
                             </div>
                             <div class="form-group">
-                                <label for="Password">Password</label>
-                                <input type="password" class="form-control" id="Password-input" aria-describedby="usernameHelp" placeholder="Enter Password">
-                                <ul id="Password-errors"></ul>
+                                <label for="Password"> Password</label>
+                                <input type="password" class="form-control" id="Password-input" aria-describedby="usernameHelp
+                                   " placeholder="Enter Password">
+                                <ul id="Password-errors"> </ul>
                             </div>
                             <button type="submit" class="btn btn-success">
-                                <i class="fas fa-user-plus"></i> Sign Up</button>
+                                <i class="fas fa-user-plus"> </i> Sign Up</button>
                             <br>
                         </fieldset>
                     </form>
@@ -108,8 +158,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
 
         <div id="login-div" class="row main-div-group" hidden>
@@ -118,22 +166,23 @@
                     <form id="login-form">
                         <fieldset>
                             <legend>
-                                <i class="fas fa-paw"></i>&nbsp&nbspLogin Account&nbsp&nbsp
-                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"> </i>&nbsp&nbspLogin Account&nbsp&nbsp
+                                <i class="fas fa-paw"> </i>
                             </legend>
                             <div class="form-group">
-                                <label for="Username">Username</label>
-                                <input type="text" class="form-control" id="Username-Input" aria-describedby="UsernameHelp" placeholder="Enter Username"
-                                    required>
-                                <ul id="Username-Errors"></ul>
+                                <label for="Username"> Username</label>
+                                <input type="text" class="form-control" id="Username-Input" aria-describedby="UsernameHelp
+                                   " placeholder="Enter Username" required>
+                                <ul id="Username-Errors"> </ul>
                             </div>
                             <div class="form-group">
-                                <label for="Password">Password</label>
-                                <input type="Password" class="form-control" id="Password-Input" aria-describedby="UsernameHelp" placeholder="Enter Password">
-                                <ul id="Password-Errors"></ul>
+                                <label for="Password"> Password</label>
+                                <input type="Password" class="form-control" id="Password-Input" aria-describedby="UsernameHelp
+                                   " placeholder="Enter Password">
+                                <ul id="Password-Errors"> </ul>
                             </div>
                             <button type="submit" class="btn btn-success">
-                                <i class="fas fa-sign-in-alt"></i> Login</button>
+                                <i class="fas fa-sign-in-alt"> </i> Login</button>
                             <br>
                         </fieldset>
                     </form>
@@ -154,35 +203,35 @@
                     <form id="AdminLogin-form">
                         <fieldset>
                             <legend>
-                                <i class="fas fa-paw"></i>&nbsp&nbspLogin Account&nbsp&nbsp
-                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"> </i>&nbsp&nbspLogin Account&nbsp&nbsp
+                                <i class="fas fa-paw"> </i>
                             </legend>
                             <div class="form-group">
-                                <label for="AdminUsername">Username</label>
-                                <input type="text" class="form-control" id="AdminUsername-Input" aria-describedby="AdminHelp" placeholder="Enter Admin Username"
-                                    required>
-                                <ul id="AdminUsername-Errors"></ul>
+                                <label for="AdminUsername"> Username</label>
+                                <input type="text" class="form-control" id="AdminUsername-Input" aria-describedby="AdminHelp
+                                   " placeholder="Enter Admin Username" required>
+                                <ul id="AdminUsername-Errors"> </ul>
                             </div>
                             <div class="form-group">
-                                <label for="AdminPassword">Password</label>
-                                <input type="Password" class="form-control" id="AdminPassword-Input" aria-describedby="AdminHelp" placeholder="Enter Admin Password">
-                                <ul id="AdminPassword-Errors"></ul>
+                                <label for="AdminPassword"> Password</label>
+                                <input type="Password" class="form-control" id="AdminPassword-Input
+                                   " aria-describedby="AdminHelp" placeholder="Enter Admin Password">
+                                <ul id="AdminPassword-Errors"> </ul>
                             </div>
                             <button type="submit" class="btn btn-success">
-                                <i class="fas fa-sign-in-alt"></i> Login</button>
+                                <i class="fas fa-sign-in-alt"> </i> Login</button>
                             <br>
                         </fieldset>
                     </form>
                 </div>
             </div>
         </div>
-
     </div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
+    <script src="index.js"> </script>
 </body>
 
 </html>
