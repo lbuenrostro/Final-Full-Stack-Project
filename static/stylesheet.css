@@ -1,93 +1,57 @@
 body {
     font-family: 'Fjalla One', sans-serif;
+    /* background-image: url('/static/images/poodle-dog.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
     background-attachment: fixed;
     background-position: top;
+    background-size: cover;
     margin: 0;
-    padding: 0;
+    padding: 0; */
+}
+
+.container {
+    /* margin-top: 0px;
+    margin-bottom: 0px;
+    min-height: 100vh; */
+    background-color: rgba(213, 255, 157, 0.466);
+    /* background-color: rgba(255, 251, 204, 0.7); */
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 img {
-    margin-top: 60px;
-    border-radius: 12px;
+    position: relative;
+    float: left;
+    width: 250px;
+    height: 250px;
+    background-position: 100% 60%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
-hr {
-    display: block;
-    border-top: 10px solid #8f2189;
-    margin: 1em;
-    padding: 0px;
-    margin-left: -20px;
-    margin-right: -20px;
-}
-.container {
-    background-color: rgba(250, 156, 250, 0.151);
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    min-height: 100vh;
-}
-
 h3 {
     text-align: center;
     margin-top: 80px;
-    color: #8f2189;
-}
-strong {
-    color: black;
-}
-
-#short-description {
-    margin-top: 90px;
-    color: #8f2189;
-    text-align: center;
-    font-size: 25px;
-}
-
-#mini-description {
-    color: black;
-}
-
-/* signUp Form */
-#signup-form {
-    color: black;
-    margin-top: 100px;
-    margin-bottom: 200em;
-}
-legend {
-    color: black;
-    text-align: center;
 }
 
 li {
     color: red;
 }
 
-#label {
-    color: green;
+.fa-paw {
+    font-size: 16px;
 }
 
 /* Top-Bar*/
 .jumbotron {
-    margin-top: -30px;
-    margin-bottom: -10px;
-    overflow: hidden;
+    margin-top: -56px;
     background-color: #333;
 }
-.top-bar {
-    display: flex;
-    justify-content: left;
-}
 .headline-btns {
-    align-items: center;
     background-color: #333;
     font-family: 'Indie Flower', sans-serif;
     color: white;
-    margin-top: 10px;
-    margin-left: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
     font-size: 1em;
 }
 .headline-btns:active {
