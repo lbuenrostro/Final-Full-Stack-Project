@@ -12,7 +12,7 @@ function onlyLetters(string) {
 }
 function checkingNameError(string) {
     var characters = [];
-    if (string.length < 8 || string.length > 20) {
+    if (string.length < 2 || string.length > 20) {
         characters.push('<li>Please Enter a valid name</li>');
     }
     if (onlyLetters(string) == false) {
@@ -272,7 +272,9 @@ function successfulLoginLoadUp(response) {
     console.log(response);
     console.log(response.adopterName);
     showPuppies();
-    $('#welcome-username').text('Hello ' + response.adopterName + '');
+    $('#welcome-username').text(
+        'Welcome to Puppy Love  ' + response.adopterName + ''
+    );
     // $('#puppy_records').attr('disabled', false);
     $('#LogOut').show();
     $('.main-group-div').hide(250);
