@@ -9,100 +9,81 @@
     <script defer src="static/fontawesome-all.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <link rel="stylesheet" href="static/stylesheet.css">
-
-
     <!-- for select option bar to work??-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
-
-
-
 </head>
 
 <body>
     <div class="container">
         <div class="row">
             <div class="jumbotron col-sm-12">
-                <div class="top-bar">
-                    <h1 style="color: white;  
+                <h1 style="color: white;  
                     font-family: 'Alfa Slab One', cursive;
                     font-size: 4em; 
                     margin-bottom: -2px; 
                     margin-right: 20px;">
-                        <b>PuppyLove</b>
-                    </h1>
-                    <button type="button" id="home-btn" class="btn headline-btns">
-                        <i class="fas fa-paw"></i>
-                        HOME
-                    </button>
-                    <button type="button" id="signUp-btn" class="btn headline-btns">
-                        <i class="fas fa-paw"></i>
-                        SIGN UP TO ADOPT
-                    </button>
-                    <button type="button" id="login-btn" class="btn headline-btns">
-                        <i class="fas fa-paw"></i>
-                        LOGIN ACCOUNT
-                    </button>
-                    <button type="button" id="admin-btn" class="btn headline-btns">
-                        <i class="fas fa-paw"></i>
-                        ADMIN ACCOUNT
-                    </button>
+                    <b>PuppyLove</b>
+                </h1>
+                <button type="button" id="home-btn" class="btn headline-btns">
+                    <i class="fas fa-paw"></i>
+                    HOME
+                </button>
+                <button type="button" id="signUp-btn" class="btn headline-btns">
+                    <i class="fas fa-paw"></i>
+                    SIGN UP TO ADOPT
+                </button>
+                <button type="button" id="login-btn" class="btn headline-btns">
+                    <i class="fas fa-paw"></i>
+                    LOGIN ACCOUNT
+                </button>
+                <button type="button" id="admin-btn" class="btn headline-btns">
+                    <i class="fas fa-paw"></i>
+                    ADMIN ACCOUNT
+                </button>
+                <h3 id="welcome-username" style="color:white;"></h3>
+                <div id="LogOut" hidden>
+                    <button type="button" class="btn btn-primary" id="logout-button">Log Out</button>
                 </div>
             </div>
+            <hr>
         </div>
-        <hr>
 
         <div id="home-div" class="row main-div-group">
-            <img class="img-responsive" src="static/images/puppy-banner.jpg" alt="cover-image" />
             <div class="row">
                 <div class="col-sm-12">
-                    <div>
-                        <center>
-                            <select data-live-search="true" data-live-search-style="startsWith" class="selectpicker data-style=" btn-info "">
-                                <option value="1">German Shepherd</option>
-                                <option value="2">Labrador Retriever</option>
-                                <option value="3">Rottweiler</option>
-                                <option value="4">Pit Bull</option>
-                                <option value="5">Golden Retriever</option>
-                                <option value="6">Beagle</option>
-                                <option value="7">Bulldog</option>
-                                <option value="8">Great Dane</option>
-                                <option value="9">Poodle</option>
-                                <option value="10">Doberman</option>
-                                <option value="11">Dachshund</option>
-                                <option value="12">Siberian Husky</option>
-                                <option value="13">Chihuahua</option>
-                                <option value="14">Boxer</option>
-                                <option value="15">Pug</option>
-                                <option value="16">English Mastiff</option>
-                                <option value="17">Chow Chow</option>
-                                <option value="18">Border Collie</option>
-                                <option value="19">Yorkshire Terrier</option>
-                                <option value="20">Shih Tzu</option>
-                                <option value="21">Pomeranina</option>
-                                <option value="22">Cavalier King Charles Spaniel</option>
-                                <option value="23">St. Bernard</option>
-                                <option value="24">Basset Hound</option>
-                                <option value="25">Alaskan Malamute</option>
-                                <option value="26">Pekingese</option>
-                                <option value="27">French Bulldog</option>
-                                <option value="28">Bichon Frise</option>
-                                <option value="29">Great Pyrenees</option>
-                                <option value="30">Bernese Mountain Dog</option>
-                            </select>
-                        </center>
-                    </div>
+                    <!-- <div>
+                        <img class="img-responsive" src="static/images/puppy-banner.jpg" alt="cover-image" />
+                    </div> -->
+                    <legend>
+                        <h2>
+                            LOVE . CARE. ADOPT Leave Pawprints on your heart make someone "SMILE"
+
+                        </h2>
+                        </p>
+                        <h2>
+                            <i class="fas fa-paw"></i>&nbsp&nbspSTORE HOURS:
+                            <i class="fas fa-paw"></i>
+                        </h2>
+                        <label>MONDAY 8:00-5:00</label>
+                        <br/>
+                        <label>TUESDAY 8:00-5:00</label>
+                        <br/>
+                        <label>WEDNESDAY 8:00-5:00</label>
+                        <br/>
+                        <label>THURSDAY 8:00-5:00</label>
+                        <br/>
+                        <label>FRIDAY 8:00-5:00</label>
+                        <br/>
+                        <label>SATURDAY 8:00-12:00</label>
+                        <br/>
+                        <label>FRIDAY CLOSE</label>
+                        <br/>
+                    </legend>
                 </div>
             </div>
         </div>
-        <!-- <p id="short-description"> 
-                        <b id="mini-description"> LOVE . CARE. ADOPT</b>
-                        PUPPIES Leave Pawprints on your heart, Make someone
-                        <b id="mini-description"> "SMILE "</b>
-                        , ADOPT TODAY!
-                    </p> -->
-
 
         <div id="signUp-div" class="row main-div-group" hidden>
             <div class="row">
@@ -148,15 +129,6 @@
                         </fieldset>
                     </form>
                 </div>
-
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div id="afterFormMessage">
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -172,27 +144,18 @@
                             <div class="form-group">
                                 <label for="Username"> Username</label>
                                 <input type="text" class="form-control" id="Username-Input" aria-describedby="UsernameHelp
-                                   " placeholder="Enter Username" required>
-                                <ul id="Username-Errors"> </ul>
+                                   " placeholder="Enter Username" required value="lbuenrostro">
                             </div>
                             <div class="form-group">
                                 <label for="Password"> Password</label>
                                 <input type="Password" class="form-control" id="Password-Input" aria-describedby="UsernameHelp
-                                   " placeholder="Enter Password">
-                                <ul id="Password-Errors"> </ul>
+                                   " placeholder="Enter Password" required value="jalebbms12.">
                             </div>
                             <button type="submit" class="btn btn-success">
                                 <i class="fas fa-sign-in-alt"> </i> Login</button>
                             <br>
                         </fieldset>
                     </form>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="afterLoginFormMessage">
-                    </div>
                 </div>
             </div>
         </div>
@@ -207,31 +170,45 @@
                                 <i class="fas fa-paw"> </i>
                             </legend>
                             <div class="form-group">
-                                <label for="AdminUsername"> Username</label>
-                                <input type="text" class="form-control" id="AdminUsername-Input" aria-describedby="AdminHelp
-                                   " placeholder="Enter Admin Username" required>
-                                <ul id="AdminUsername-Errors"> </ul>
+                                <label for="AdminFirstName">First Name</label>
+                                <input type="text" class="form-control" id="AdminFirstName-Input" aria-describedby="AdminHelp" placeholder="Enter First Name"
+                                    required>
                             </div>
                             <div class="form-group">
-                                <label for="AdminPassword"> Password</label>
-                                <input type="Password" class="form-control" id="AdminPassword-Input
-                                   " aria-describedby="AdminHelp" placeholder="Enter Admin Password">
-                                <ul id="AdminPassword-Errors"> </ul>
+                                <label for="AdminLastName">Last Name</label>
+                                <input type="text" class="form-control" id="AdminLastName-Input" aria-describedby="AdminHelp" placeholder="Enter Last Name"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="AdminUsername">Username</label>
+                                <input type="text" class="form-control" id="AdminUsername-Input" aria-describedby="AdminHelp
+                                   " placeholder="Enter Admin Username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="AdminPassword">Password</label>
+                                <input type="Password" class="form-control" id="AdminPassword-Input" aria-describedby="AdminHelp" placeholder="Enter Admin Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="AdminEmail">Email</label>
+                                <input type="text" class="form-control" id="AdminEmail-Input" aria-describedby="AdminHelp" placeholder="Enter Email Name"
+                                    required>
                             </div>
                             <button type="submit" class="btn btn-success">
-                                <i class="fas fa-sign-in-alt"> </i> Login</button>
+                                <i class="fas fa-sign-in-alt"> </i> Manager Login</button>
                             <br>
                         </fieldset>
                     </form>
                 </div>
             </div>
         </div>
+
+
+        <div id="puppy_records">
+        </div>
     </div>
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
-    <script src="index.js"> </script>
 </body>
 
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
+<script src="index.js"> </script>

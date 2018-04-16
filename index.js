@@ -1,100 +1,7 @@
-////////////////////////////////////////////////////////////////////////////////////////////////
-////Manager login
-// ********MANAGER-USERNAME FUNCTION***********
+//GLOBAL VARS
+SESSIONKEYID = Number();
+USERNAME = '';
 
-function AdminContains(string) {
-    var letters = /^[0-9a-z]*$/i;
-    if (letters.test(string)) {
-        return true;
-    }
-    return false;
-}
-function AdminUsernameError(string) {
-    var characters = [];
-    if (string.length < 8 || string.length > 16) {
-        characters.push('<li>8-16 characters</li>');
-    }
-    if (AdminContains(string) == false) {
-        characters.push('<li>username must contain numbers & letters</li>');
-    }
-    return characters.join('');
-}
-function AdminUsernameErrorHtml(username) {
-    const html = AdminUsernameError(username);
-    $('#AdminUsername-Errors').html(html);
-}
-
-function AddAdminUsernameValidation() {
-    const input = $('#AdminUsername-Input');
-    input.on('input', function(event) {
-        AdminUsernameErrorHtml(event.currentTarget.value);
-        AdminEnableButton();
-    });
-}
-
-// *****PASSWORD FUNCTIONS*****//
-
-function AdminContainsMore(password) {
-    var letter = /[0-9a-z!:;"',.?]*S/i;
-    if (letter.test(password)) {
-        return true;
-    }
-    return false;
-}
-function AdminPasswordError(string) {
-    var LetterDigitPunctuation = [];
-    if (string.length < 11 || string.length > 15) {
-        LetterDigitPunctuation.push(
-            '<li>has to be between 12-16 character</li>'
-        );
-    }
-    if (AdminContainsMore(string) == false) {
-        LetterDigitPunctuation.push('<li>Number & Punctuation</li>');
-    }
-    return LetterDigitPunctuation.join('');
-}
-
-function AdminPasswordErrorHtml(password) {
-    const html = AdminPasswordError(password);
-    $('#AdminPassword-Errors').html(html);
-}
-
-function AddAdminPasswordValidation() {
-    const input = $('#AdminPassword-Input');
-    input.on('input', function(event) {
-        AdminPasswordErrorHtml(event.currentTarget.value);
-        AdminEnableButton();
-    });
-}
-
-// -------------- ENABLE BUTTON -----------
-function CheckValidAdminUsername() {
-    return AdminUsernameError($('#AdminUsername-Input').val()).trim() === '';
-}
-function CheckValidAdminPassword() {
-    return AdminPasswordError($('#AdminPassword-Input').val()).trim() === '';
-}
-function AdminEnableButton() {
-    if (CheckValidAdminUsername() && CheckValidAdminPassword()) {
-        $('.btn').attr('disabled', false);
-    } else {
-        $('.btn').attr('disabled', true);
-    }
-}
-
-function AdminLoginForm() {
-    if (CheckValidAdminUsername() && CheckValidAdminPassword()) {
-        $('#AdminLogin-form').hide();
-        $('#afterAdminLoginFormMessage')
-            .html('<h3>It works</h3>')
-            .show();
-    } else {
-        $('#afterAdminLoginFormMessage')
-            .html("<h3>Doesn't work</h3>")
-            .show();
-    }
-}
-////////////////////////////////////////////////////////////////////////////////////////////////
 // *****Name FUNCTIONS*****//
 function onlyLetters(string) {
     var letters = /[a-z]/i;
@@ -118,13 +25,10 @@ function NameErrorHtml(name) {
     $('#adopterName-errors').html(html);
 }
 
-function addNameValidation() {
-    const input = $('#adopterName-input');
-    input.on('input', function(event) {
-        NameErrorHtml(event.currentTarget.value);
-        enableButton();
-    });
-}
+$('#adopterName-input').on('input', function(event) {
+    NameErrorHtml(event.currentTarget.value);
+    enableButton();
+});
 // ********USERNAME FUNCTION***********
 
 function onlyNumbersAndLetters(string) {
@@ -148,14 +52,11 @@ function usernameErrorHtml(username) {
     const html = checkingUsernameError(username);
     $('#Username-errors').html(html);
 }
-
-function addUsernameValidation() {
-    const input = $('#Username-input');
-    input.on('input', function(event) {
-        usernameErrorHtml(event.currentTarget.value);
-        enableButton();
-    });
-}
+$('#Username-input').on('input', function(event) {
+    usernameErrorHtml(event.currentTarget.value);
+    enableButton();
+});
+// }
 
 // *****Email FUNCTIONS**************
 
@@ -179,13 +80,10 @@ function EmailErrorHtml(email) {
     $('#Email-errors').html(html);
 }
 
-function addEmailValidation() {
-    const input = $('#Email-input');
-    input.on('input', function(event) {
-        EmailErrorHtml(event.currentTarget.value);
-        enableButton();
-    });
-}
+$('#Email-input').on('input', function(event) {
+    EmailErrorHtml(event.currentTarget.value);
+    enableButton();
+});
 
 // *****PASSWORD FUNCTIONS*****//
 
@@ -238,13 +136,10 @@ function passwordErrorHtml(password) {
     $('#Password-errors').html(html);
 }
 
-function addpasswordValidation() {
-    const input = $('#Password-input');
-    input.on('input', function(event) {
-        passwordErrorHtml(event.currentTarget.value);
-        enableButton();
-    });
-}
+$('#Password-input').on('input', function(event) {
+    passwordErrorHtml(event.currentTarget.value);
+    enableButton();
+});
 
 // -------------- ENABLE BUTTON -----------
 function checkValidName() {
@@ -280,224 +175,215 @@ function checksSignUpForm() {
         checkValidPassword()
     ) {
         $('#Signup-form').hide();
-        $('#afterFormMessage')
-            .html('<h3>It works</h3>')
-            .show();
-    } else {
-        $('#afterFormMessage')
-            .html("<h3>Doesn't work</h3>")
-            .show();
     }
 }
-////////////////////////////////////////////////////////////////////////////////////////////////
-// LOGIN ACCOUNT
-// ********USERNAME FUNCTION***********
-
-function OnlyNumbersAndLetters(string) {
-    var letters = /^[0-9a-z]*$/i;
-    if (letters.test(string)) {
-        return true;
-    }
-    return false;
-}
-function UsernameError(string) {
-    var characters = [];
-    if (string.length < 8 || string.length > 16) {
-        characters.push('<li>8-16 characters</li>');
-    }
-    if (OnlyNumbersAndLetters(string) == false) {
-        characters.push('<li>username must contain numbers & letters</li>');
-    }
-    return characters.join('');
-}
-function UsernameErrorHtml(username) {
-    const html = UsernameError(username);
-    $('#Username-Errors').html(html);
-}
-
-function AddUsernameValidation() {
-    const input = $('#Username-Input');
-    input.on('input', function(event) {
-        UsernameErrorHtml(event.currentTarget.value);
-        EnableButton();
-    });
-}
-
-// *****PASSWORD FUNCTIONS*****//
-
-function contains(password) {
-    var letter = /[0-9a-z!:;"',.?]*S/i;
-    if (letter.test(password)) {
-        return true;
-    }
-    return false;
-}
-function PasswordError(string) {
-    var LetterDigitPunctuation = [];
-    if (string.length < 11 || string.length > 15) {
-        LetterDigitPunctuation.push(
-            '<li>has to be between 12-16 character</li>'
-        );
-    }
-    if (contains(string) == false) {
-        LetterDigitPunctuation.push('<li>Number & Punctuation</li>');
-    }
-    return LetterDigitPunctuation.join('');
-}
-
-function PasswordErrorHtml(password) {
-    const html = PasswordError(password);
-    $('#Password-Errors').html(html);
-}
-
-function AddpasswordValidation() {
-    const input = $('#Password-Input');
-    input.on('input', function(event) {
-        PasswordErrorHtml(event.currentTarget.value);
-        enableButton();
-    });
-}
-
-// -------------- ENABLE BUTTON -----------
-function CheckValidUsername() {
-    return UsernameError($('#Username-Input').val()).trim() === '';
-}
-function CheckValidPassword() {
-    return PasswordError($('#Password-Input').val()).trim() === '';
-}
-function EnableButton() {
-    if (CheckValidUsername() && CheckValidPassword()) {
-        $('.btn').attr('disabled', false);
-    } else {
-        $('.btn').attr('disabled', true);
-    }
-}
-
-function checksLoginForm() {
-    if (CheckValidUsername() && CheckValidPassword()) {
-        $('#login-form').hide();
-        $('#afterLoginFormMessage')
-            .html('<h3>It works</h3>')
-            .show();
-    } else {
-        $('#afterLoginFormMessage')
-            .html("<h3>Doesn't work</h3>")
-            .show();
-    }
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Button controller (top-bar)
 function loadPages() {
     $('.headline-btns').click(function() {
         $('.main-div-group').hide();
         var id = $(this).attr('id');
+        // creating string name for which div to show
         var div = '#' + id.replace('btn', 'div');
         $(div).show();
     });
 }
 
 // ------------------------------------------
-function registerSignUpHandler() {
-    $('#Signup-form').on('submit', function(event) {
-        event.preventDefault();
-        console.log(
-            JSON.stringify({
-                adopterName: $('#adopterName-input').val(),
-                username: $('#Username-input').val(),
-                email: $('#Email-input').val(),
-                password: $('#Password-input').val()
-            })
-        );
-        $.ajax({
-            url: 'http://localhost:8080/SignUp/',
-            method: 'POST',
-            dataType: 'json',
-            crossDomain: true,
-            data: JSON.stringify({
-                adopterName: $('#adopterName-input').val(),
-                username: $('#Username-input').val(),
-                email: $('#Email-input').val(),
-                password: $('#Password-input').val()
-            }),
-            contentType: 'application/json',
-            mimeType: 'application/json',
-            error: function(data, status, er) {
-                alert('status: ' + status);
-            }
+function registerSignUpHandler(event) {
+    console.log(
+        JSON.stringify({
+            // IntelliJ (adoptername): Html form id(#adopterName-input')
+            adopterName: $('#adopterName-input').val(),
+            username: $('#Username-input').val(),
+            email: $('#Email-input').val(),
+            password: $('#Password-input').val()
+        })
+    );
+    $.ajax({
+        url: 'http://localhost:8080/SignUp/',
+        method: 'POST',
+        dataType: 'json',
+        crossDomain: true,
+        data: JSON.stringify({
+            adopterName: $('#adopterName-input').val(),
+            username: $('#Username-input').val(),
+            email: $('#Email-input').val(),
+            password: $('#Password-input').val()
+        }),
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        error: function(data, status, er) {
+            alert('status: ' + status);
+        }
+    })
+        .then(function successfulSignUp(response) {
+            console.log();
+            SESSIONKEYID = response.sessionKey;
+            USERNAME = response.username;
+            successfulLoginLoadUp(response);
+        })
+        .catch(function unsuccessfulLogin(response) {
+            console.log('Unable to Sign Up');
+            console.log(response.statusText);
         });
-    });
 }
-// ------------------------------------------
-function registerLoginHandler() {
-    $('#login-form').on('submit', function(event) {
-        event.preventDefault();
-        console.log(
-            JSON.stringify({
-                username: $('#Username-Input').val(),
-                password: $('#Password-Input').val()
-            })
-        );
-        $.ajax({
-            url: 'http://localhost:8080/Login/',
-            method: 'POST',
-            dataType: 'json',
-            crossDomain: true,
-            data: JSON.stringify({
-                adopterName: $('#Username-Input').val(),
-                password: $('#Password-Input').val()
-            }),
-            contentType: 'application/json',
-            mimeType: 'application/json',
-            error: function(data, status, er) {
-                alert('status: ' + status);
-            }
-        });
-    });
-}
-// ------------------------------------------
-function main() {
-    addNameValidation();
-    addUsernameValidation();
-    addpasswordValidation();
-    addEmailValidation();
-    // $('#Signup-form').on('submit', function(event) {
-    //     event.preventDefault();
-    //     checksSignUpForm();
-    //     var name = $('#adopterName-input').val();
-    //     console.log(name);
-    //     var username = $('#Username-input').val();
-    //     console.log(username);
-    //     var email = $('#Email-input').val();
-    //     console.log(email);
-    //     var password = $('#Password-input').val();
-    //     console.log(password);
-    // });
-    AddUsernameValidation();
-    AddpasswordValidation();
-    // $('#login-form').on('submit', function(event) {
-    //     event.preventDefault();
-    //     checksLoginForm();
-    //     var Username = $('#Username-Input').val();
-    //     console.log(Username);
-    //     var Password = $('#Password-Input').val();
-    //     console.log(Password);
-    // });
-    AddAdminUsernameValidation();
-    AddAdminPasswordValidation();
-    $('#Adminlogin-form').on('submit', function(event) {
-        event.preventDefault();
-        checksLoginForm();
-        var AdminUsername = $('#AdminUsername-Input').val();
-        console.log(AdminUsername);
-        var AdminPassword = $('#AdminPassword-Input').val();
-        console.log(AdminPassword);
-    });
 
+$('#Signup-form').on('submit', function(event) {
+    event.preventDefault();
+    registerSignUpHandler(event);
+});
+
+// ------------------------------------------
+$('#login-form').on('submit', function(event) {
+    event.preventDefault();
+    // console.log($('#Password-Input').val());
+    $.ajax({
+        url: 'http://localhost:8080/Login/',
+        method: 'POST',
+        dataType: 'json',
+        crossDomain: true,
+        data: JSON.stringify({
+            username: $('#Username-Input').val(),
+            password: $('#Password-Input').val()
+        }),
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        error: function(data, status, er) {
+            alert('Username or Password incorrect please try again!!');
+        }
+    })
+        .then(function successfulLogin(response) {
+            SESSIONKEYID = response.sessionKey;
+            USERNAME = response.username;
+            console.log(SESSIONKEYID);
+            console.log(USERNAME);
+            successfulLoginLoadUp(response);
+        })
+        .catch(function unsuccessfulLogin(response) {
+            console.log('Unable to Login');
+            console.log(response.statusText);
+        });
+    // .then(alert('Woo! Good Job!'));
+});
+
+function successfulLoginLoadUp(response) {
+    console.log('this works');
+    console.log(response);
+    console.log(response.adopterName);
+    showPuppies();
+    $('#welcome-username').text('Hello ' + response.adopterName + '');
+    // $('#puppy_records').attr('disabled', false);
+    $('#LogOut').show();
+    $('.main-group-div').hide(250);
+    $('#login-div').remove();
+    $('#signUp-div').remove();
+    $('#puppy_records').show(450);
+}
+
+function puppy_records(puppies) {
+    var puppiesLayout = puppies
+        .map(function(puppy_records) {
+            return [
+                "<div class='PuppyTables' col-lg-6 col-md-8 col-sm-5",
+                "<tr id='all-puppies' class='card text-white bg-dark mb-3' style='max-width: 30em;'>",
+                '<td>' +
+                    '<img src=' +
+                    puppy_records.puppy_img_url +
+                    '>' +
+                    '<p> Breed: ' +
+                    puppy_records.breed +
+                    '</p>' +
+                    '<p> Gender: ' +
+                    puppy_records.gender +
+                    '</p>' +
+                    '<p> AGE: ' +
+                    puppy_records.age +
+                    '</p>' +
+                    '<p> Price: $' +
+                    puppy_records.price +
+                    '</p>' +
+                    '<button onclick=buypuppy("' +
+                    puppy_records.id +
+                    '") class="btn btn-info">' +
+                    '<i class="fas fa-paw"></i>&nbsp&nbspAdopt</button>' +
+                    '</td>' +
+                    '</tr>',
+                '</div>',
+                '</div>'
+            ].join('');
+        })
+        .join('');
+
+    return '<table>' + puppiesLayout + '</table>';
+}
+
+function initializeExistingPuppiesView(puppies) {
+    $('#puppy_records').html(puppy_records(puppies));
+}
+
+function showPuppies() {
+    fetch('http://localhost:8080/puppies/')
+        .then(response => response.json())
+        .then(initializeExistingPuppiesView);
+}
+
+function logout() {
+    var url = 'http://localhost:8080/logout/' + USERNAME;
+    console.log(url);
+    $.ajax({
+        url: url,
+        method: 'Post',
+        dataType: 'json',
+        crossDomain: true,
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        mode: 'cors',
+        error: function(data, status, er) {
+            console.log(status + ' ' + er);
+        }
+    }).then(function() {
+        $('.container').html('<h2>Logged out.</h2><p>Please come again!</p>');
+    });
+}
+$('#logout-button').click(function() {
+    console.log('The button works!!!!!');
+    console.log('logging out...');
+    logout();
+});
+
+function adoptPuppy(id) {
+    console.log(id);
+}
+
+function buypuppy(id) {
+    console.log('The button is working');
+    console.log(id);
+    var url = 'http://localhost:8080/Buy/' + id;
+    $.ajax({
+        url: url,
+        method: 'Post',
+        dataType: 'json',
+        crossDomain: false,
+        data: JSON.stringify({
+            id: id
+        }),
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        mode: 'cors'
+    })
+        .then(function handleResponse(response) {
+            var DATA = response;
+            console.log(DATA);
+        })
+        .catch(function handleError(error) {
+            console.log(error);
+        });
+}
+
+function main() {
     loadPages();
-    registerSignUpHandler();
-    registerLoginHandler();
+    // showPuppies();
 }
 
 $(main);
