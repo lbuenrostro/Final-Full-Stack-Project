@@ -273,7 +273,7 @@ function successfulLoginLoadUp(response) {
     console.log(response.adopterName);
     showPuppies();
     $('#welcome-username').text(
-        'Welcome to Puppy Love  ' + response.adopterName + ''
+        'Welcome to Puppy Love,   ' + response.adopterName + ''
     );
     // $('#puppy_records').attr('disabled', false);
     $('#LogOut').show();
@@ -283,41 +283,49 @@ function successfulLoginLoadUp(response) {
     $('#puppy_records').show(450);
 }
 
-function puppy_records(puppies) {
-    var puppiesLayout = puppies
-        .map(function(puppy_records) {
-            return [
-                "<div class='PuppyTables' col-lg-6 col-md-8 col-sm-5",
-                "<tr id='all-puppies' class='card text-white bg-dark mb-3' style='max-width: 30em;'>",
-                '<td>' +
-                    '<img src=' +
-                    puppy_records.puppy_img_url +
-                    '>' +
-                    '<p> Breed: ' +
-                    puppy_records.breed +
-                    '</p>' +
-                    '<p> Gender: ' +
-                    puppy_records.gender +
-                    '</p>' +
-                    '<p> AGE: ' +
-                    puppy_records.age +
-                    '</p>' +
-                    '<p> Price: $' +
-                    puppy_records.price +
-                    '</p>' +
-                    '<button onclick=buypuppy("' +
-                    puppy_records.id +
-                    '") class="btn btn-info">' +
-                    '<i class="fas fa-paw"></i>&nbsp&nbspAdopt</button>' +
-                    '</td>' +
-                    '</tr>',
-                '</div>',
-                '</div>'
-            ].join('');
-        })
-        .join('');
+function makePuppyDiv(puppy_records) {
+    return (
+        '<div class="col-lg-4 col-sm-12">' +
+        "<div class='PuppyTables puppydiv'>" +
+        '<div class="col-sm-6">' +
+        '<img src=' +
+        puppy_records.puppy_img_url +
+        '>' +
+        '</div>' +
+        '<div class="col-sm-6">' +
+        '<p> Breed: ' +
+        puppy_records.breed +
+        '</p>' +
+        '<p> Gender: ' +
+        puppy_records.gender +
+        '</p>' +
+        '<p> AGE: ' +
+        puppy_records.age +
+        '</p>' +
+        '<small class="form-text text-muted">Taxes & Other Expensives(vaccines) included</small>' +
+        '<p> Price: $' +
+        puppy_records.price +
+        '</p>' +
+        '<button onclick=buypuppy("' +
+        puppy_records.id +
+        '") class="btn btn-info">' +
+        '<i class="fas fa-paw"></i>&nbsp&nbspAdopt</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>'
+    );
+}
 
-    return '<table>' + puppiesLayout + '</table>';
+function puppy_records(puppies) {
+    var html = '<div class="row">';
+    for (var i = 0; i < puppies.length; i++) {
+        if (i % 3 == 0) {
+            html += '</div><div class="row">';
+        }
+        html += makePuppyDiv(puppies[i]);
+    }
+    html += '</div>';
+    return html;
 }
 
 function initializeExistingPuppiesView(puppies) {

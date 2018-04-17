@@ -1,25 +1,21 @@
 body {
     font-family: 'Fjalla One', sans-serif;
-    /* background-image: url('/static/images/poodle-dog.jpg');
+    background-image: url('images/poodle-dog.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top;
     background-size: cover;
     margin: 0;
-    padding: 0; */
+    padding: 0;
 }
 
 .container {
-    /* margin-top: 0px;
-    margin-bottom: 0px;
-    min-height: 100vh; */
-    background-color: rgba(213, 255, 157, 0.466);
-    /* background-color: rgba(255, 251, 204, 0.7); */
+    background-color: rgba(213, 255, 157, 0.514);
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-img {
+/* img {
     position: relative;
     float: left;
     width: 250px;
@@ -27,7 +23,15 @@ img {
     background-position: 100% 60%;
     background-repeat: no-repeat;
     background-size: cover;
+} */
+
+img {
+    position: relative;
+    float: left;
+    max-width: 100%;
+    border-radius: 15px;
 }
+
 h3 {
     text-align: center;
     margin-top: 80px;
@@ -41,33 +45,60 @@ li {
     font-size: 16px;
 }
 
+#welcome-username {
+    color: white;
+}
+
 /* Top-Bar*/
+.jumbotron h1 {
+    color: white;
+    font-weight: bold;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 4em;
+}
+
+#logout-button,
 .jumbotron {
-    margin-top: -56px;
+    padding-top: 5px;
+    padding-bottom: 0px;
     background-color: #333;
 }
+
+#logout-button,
 .headline-btns {
     background-color: #333;
     font-family: 'Indie Flower', sans-serif;
     color: white;
-    margin-top: 20px;
-    margin-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 1em;
 }
+
+#logout-button,
 .headline-btns:active {
     color: #8f2189;
     font-weight: bolder;
     background-color: white;
 }
 
+#logout-button,
 .headline-btns:focus {
     color: #8f2189;
     font-weight: bolder;
     background-color: white;
 }
 
+#logout-button,
 .headline-btns:hover {
     color: #8f2189;
     font-weight: bolder;
     background-color: white;
+}
+
+.puppydiv {
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 5px;
+    display: inline-block;
 }
