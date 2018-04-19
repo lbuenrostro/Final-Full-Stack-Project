@@ -15,16 +15,6 @@ body {
     margin-bottom: 0px;
 }
 
-/* img {
-    position: relative;
-    float: left;
-    width: 250px;
-    height: 250px;
-    background-position: 100% 60%;
-    background-repeat: no-repeat;
-    background-size: cover;
-} */
-
 img {
     position: relative;
     float: left;
@@ -57,15 +47,14 @@ li {
     font-size: 4em;
 }
 
-#logout-button,
 .jumbotron {
     padding-top: 5px;
     padding-bottom: 0px;
     background-color: #333;
 }
 
-#logout-button,
 .headline-btns {
+    border-radius: 5px 20px 5px;
     background-color: #333;
     font-family: 'Indie Flower', sans-serif;
     color: white;
@@ -74,31 +63,46 @@ li {
     font-size: 1em;
 }
 
-#logout-button,
 .headline-btns:active {
     color: #8f2189;
     font-weight: bolder;
     background-color: white;
 }
 
-#logout-button,
 .headline-btns:focus {
     color: #8f2189;
     font-weight: bolder;
     background-color: white;
 }
 
-#logout-button,
 .headline-btns:hover {
     color: #8f2189;
     font-weight: bolder;
     background-color: white;
 }
 
+#logout-button {
+    margin-bottom: 10px;
+    border-radius: 5px 20px 5px;
+    padding: 20px;
+    color: #333;
+}
+
 .puppydiv {
     background-color: white;
     border-radius: 15px;
     padding: 15px;
+    margin: 5px;
+    display: inline-block;
+}
+
+/* HOME Div */
+
+.info {
+    color: white;
+    text-align: center;
+    background-color: #333;
+    padding: 5px;
     margin: 5px;
     display: inline-block;
 }
