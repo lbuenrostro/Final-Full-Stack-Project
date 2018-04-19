@@ -275,11 +275,12 @@ function successfulLoginLoadUp(response) {
     $('#welcome-username').text(
         'Welcome to Puppy Love,   ' + response.adopterName + ''
     );
-    // $('#puppy_records').attr('disabled', false);
+    $('#puppy_records').attr('disabled', false);
     $('#LogOut').show();
-    $('.main-group-div').hide(250);
+    // $('.main-group-div').hide(250);
     $('#login-div').remove();
     $('#signUp-div').remove();
+    // $('#admin-div').remove();
     $('#puppy_records').show(450);
 }
 

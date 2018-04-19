@@ -19,12 +19,8 @@
     <div class="container">
         <div class="row">
             <div class="jumbotron col-sm-12">
-                <h1 style="color: white;  
-                    font-family: 'Alfa Slab One', cursive;
-                    font-size: 4em; 
-                    margin-bottom: -2px; 
-                    margin-right: 20px;">
-                    <b>PuppyLove</b>
+                <h1>
+                    PuppyLove
                 </h1>
                 <button type="button" id="home-btn" class="btn headline-btns">
                     <i class="fas fa-paw"></i>
@@ -38,34 +34,22 @@
                     <i class="fas fa-paw"></i>
                     LOGIN ACCOUNT
                 </button>
-                <!-- <button type="button" id="admin-btn" class="btn headline-btns">
-                    <i class="fas fa-paw"></i>
-                    ADMIN ACCOUNT
-                </button> -->
-                <h3 id="welcome-username" style="color:white;"></h3>
+                <h3 id="welcome-username"></h3>
                 <div id="LogOut" hidden>
-                    <button type="button" class="btn btn-primary" id="logout-button">Log Out</button>
+                    <button type="button" class="btn btn-info" id="logout-button">
+                        <i class="fas fa-paw"></i>&nbsp&nbspLog Out</button>
                 </div>
             </div>
-            <hr>
         </div>
 
         <div id="home-div" class="row main-div-group">
             <div class="row">
                 <div class="col-sm-12">
-                    <!-- <div>
-                        <img class="img-responsive" src="static/images/puppy-banner.jpg" alt="cover-image" />
-                    </div> -->
-                    <legend>
-                        <h2>
-                            LOVE . CARE. ADOPT Leave Pawprints on your heart make someone "SMILE"
-
-                        </h2>
-                        </p>
-                        <h2>
+                    <div class="info">
+                        <h3>
                             <i class="fas fa-paw"></i>&nbsp&nbspSTORE HOURS:
                             <i class="fas fa-paw"></i>
-                        </h2>
+                        </h3>
                         <label>MONDAY 8:00-5:00</label>
                         <br/>
                         <label>TUESDAY 8:00-5:00</label>
@@ -80,7 +64,14 @@
                         <br/>
                         <label>FRIDAY CLOSE</label>
                         <br/>
-                    </legend>
+                        <h3>
+                            <i class="fas fa-paw"></i>&nbsp&nbspPhone:</h3>
+                        <label>
+                            <b>(540)</b> 328-9365</label>
+                        <h3>
+                            <i class="fas fa-paw"></i>&nbsp&nbspLocation:</h3>
+                        <b>4802 Valley View Blvd. NW #UF290 Roanoke, VA 24012</b>
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,12 +135,12 @@
                             <div class="form-group">
                                 <label for="Username"> Username</label>
                                 <input type="text" class="form-control" id="Username-Input" aria-describedby="UsernameHelp
-                                   " placeholder="Enter Username" required value="lbuenrostro">
+                                   " placeholder="Enter Username">
                             </div>
                             <div class="form-group">
                                 <label for="Password"> Password</label>
                                 <input type="Password" class="form-control" id="Password-Input" aria-describedby="UsernameHelp
-                                   " placeholder="Enter Password" required value="jalebbms12.">
+                                   " placeholder="Enter Password">
                             </div>
                             <button type="submit" class="btn btn-success">
                                 <i class="fas fa-sign-in-alt"> </i> Login</button>
@@ -160,50 +151,7 @@
             </div>
         </div>
 
-        <!-- <div id="admin-div" class="row main-div-group" hidden>
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <form id="AdminLogin-form">
-                        <fieldset>
-                            <legend>
-                                <i class="fas fa-paw"> </i>&nbsp&nbspLogin Account&nbsp&nbsp
-                                <i class="fas fa-paw"> </i>
-                            </legend>
-                            <div class="form-group">
-                                <label for="AdminFirstName">First Name</label>
-                                <input type="text" class="form-control" id="AdminFirstName-Input" aria-describedby="AdminHelp" placeholder="Enter First Name"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="AdminLastName">Last Name</label>
-                                <input type="text" class="form-control" id="AdminLastName-Input" aria-describedby="AdminHelp" placeholder="Enter Last Name"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="AdminUsername">Username</label>
-                                <input type="text" class="form-control" id="AdminUsername-Input" aria-describedby="AdminHelp
-                                   " placeholder="Enter Admin Username" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="AdminPassword">Password</label>
-                                <input type="Password" class="form-control" id="AdminPassword-Input" aria-describedby="AdminHelp" placeholder="Enter Admin Password">
-                            </div>
-                            <div class="form-group">
-                                <label for="AdminEmail">Email</label>
-                                <input type="text" class="form-control" id="AdminEmail-Input" aria-describedby="AdminHelp" placeholder="Enter Email Name"
-                                    required>
-                            </div>
-                            <button type="submit" class="btn btn-success">
-                                <i class="fas fa-sign-in-alt"> </i> Manager Login</button>
-                            <br>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </div> -->
-
-
-        <div id="puppy_records">
+        <div class="row" id="puppy_records">
         </div>
     </div>
 </body>
