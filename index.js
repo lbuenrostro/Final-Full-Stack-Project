@@ -277,10 +277,8 @@ function successfulLoginLoadUp(response) {
     );
     $('#puppy_records').attr('disabled', false);
     $('#LogOut').show();
-    // $('.main-group-div').hide(250);
     $('#login-div').remove();
     $('#signUp-div').remove();
-    // $('#admin-div').remove();
     $('#puppy_records').show(450);
 }
 
@@ -390,6 +388,28 @@ function buypuppy(id) {
         .catch(function handleError(error) {
             console.log(error);
         });
+}
+
+// When the user scrolls down 10px from the top of the document, show the button
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (
+        document.body.scrollTop > 10 ||
+        document.documentElement.scrollTop > 10
+    ) {
+        document.getElementById('myBtn').style.display = 'block';
+    } else {
+        document.getElementById('myBtn').style.display = 'none';
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
 
 function main() {
